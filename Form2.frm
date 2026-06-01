@@ -1658,6 +1658,8 @@ Attribute VB_Exposed = False
 Private Declare Function sndPlaySound Lib "winmm.dll" Alias "sndPlaySoundA" ( _
     ByVal lpszSoundName As String, _
     ByVal uFlags As Long) As Long
+    
+Public global_52 As Long
 
 Private Sub pivo_Click() '63FC80
   Form2.pivo.Visible = False
@@ -1796,9 +1798,8 @@ End Sub
 
 Private Sub kamen_DragDrop(Source As Control, X As Single, Y As Single) '63D340
   Set Me = Form2.klíè(var_28)
-  Set 0 = Source(0)
   If (Source = var_28) Then
-    Form2.text.PictureBox.BackColor = "Klíc na kámen! To je teda masakr! Ty musíš ješte vetší mamrd než vypadáš! Jsi ten nejvetší curák, jakýho jsem kdy videl! Klíc na kámen.. to je gól! Seš fakt dement, píco!"
+    Form2.text.Caption = "Klíc na kámen! To je teda masakr! Ty musíš ješte vetší mamrd než vypadáš! Jsi ten nejvetší curák, jakýho jsem kdy videl! Klíc na kámen.. to je gól! Seš fakt dement, píco!"
   End If
   GoTo loc_0063D474
   Exit Sub
@@ -2287,9 +2288,7 @@ Private Sub Form_Load() '6397A0
   global_56 = 1
   global_58 = 1
   global_60 = 1
-  If global_00648038 = 1 Then
-    global_52 = CStr((CStr(700) + 5000000))
-  End If
+  global_52 = 700
   Form2.Timer1.Interval = CLng(1)
   var_74 = "UPOZORNENÍ PRO PRECITLIVELÉ POVAHY: Hra obsahuje mnoho brutálního chování a vulgárních slov. Hraním této hry na sebe berete veškerou zodpovednost, pokud se vám hra nelíbí, tak jí nehrajte. Dekuji, prípadné dotazy = marty@northcrewz.tk"
   a = MsgBox(var_74, 0, 10, 10, 10)
@@ -2394,54 +2393,28 @@ Private Sub typ_Click() '644E90
 loc_00644F28:
 End Sub
 
-Private Sub typ_DragDrop(Source As Control, X As Single, Y As Single) '644F50
-  Set Me = Form2.lahev(var_40)
-  Set 0 = Source(0)
-  If (Source = var_40) Then
-    Form2.text.PictureBox.BackColor = "Lahví si ho jenom poranil a když došlo na pestní souboj, ukázalo se že je silnejší než ty"
-  End If
-  Set 0 = Form2.lahev(var_40)
-  Set 0 = Source(0)
-  If (var_50 = var_40) Then
-    Form2.ulièka.PictureBox.Visible = False
-  End If
-  Set 0 = Form2.lahev(var_40)
-  Set  = Source(0)
-  If (Source = var_40) Then
-    Form2.inventáø.PictureBox.Visible = False
-  End If
-  Set 0 = Form2.lahev(var_40)
-  Set  = Source()
-  If (Source = var_40) Then
-    Form2.lahev.PictureBox.Visible = False
-  End If
-  Set  = Form2.Kámen(var_40)
-  Set  = Source()
-  If (var_50 = var_40) Then
-    Form2.typ.PictureBox.Visible = False
-  End If
-  Set  = Form2.Kámen(var_40)
-  Set  = Source()
-  If (Source = var_40) Then
-    Form2.TypMRTVEJ.PictureBox.Visible = True
-  End If
-  Set  = Form2.Kámen(var_40)
-  Set  = Source()
-  If (Source = var_40) Then
-    Form2.text.PictureBox.BackColor = "Kamenem si ho uderil pekne do hlavy, už se asi nezvedne"
-  End If
-  Set  = Form2.Kámen(var_40)
-  Set  = Source()
-  If (var_50 = var_40) Then
-  End If
-  Set  = Form2.Kámen.PictureBox(var_40)
-  Set  = Source()
-  If (Source = var_40) Then
-    var_802C = sndPlaySound(CStr("bum2.wav"), 1)
-  End If
-  GoTo loc_00645620
-  Exit Sub
-loc_00645620:
+Private Sub typ_DragDrop(Source As Control, X As Single, Y As Single)
+
+    If Source.Name = "lahev" Then
+        text.Caption = "Lahví si ho jenom poranil a když došlo na pestní souboj, ukázalo se že je silnejší než ty"
+        
+        ulièka.Visible = False
+        inventáø.Visible = False
+        lahev.Visible = False
+        typ.Visible = False
+        TypMRTVEJ.Visible = True
+
+    ElseIf Source.Name = "kámen" Then
+        text.Caption = "Kamenem si ho uderil pekne do hlavy, už se asi nezvedne"
+
+        ulièka.Visible = False
+        inventáø.Visible = False
+        typ.Visible = False
+        TypMRTVEJ.Visible = True
+
+        sndPlaySound App.Path & "\bum2.wav", 1
+    End If
+
 End Sub
 
 Private Sub TypMRTVEJ_Click() '645650
@@ -2689,7 +2662,7 @@ loc_006477C3:
 End Sub
 
 Private Sub dùmGO_Click() '638BC0
-  Form2.dùm.PictureBox.Visible = True
+  Form2.dùm.Visible = True
   Form2.mapa.Visible = False
   Form2.text.Caption = "Stojíš pred zdí, která obíhá celý komplex šéfova domu"
   GoTo loc_00638CDA
@@ -2905,7 +2878,7 @@ End Sub
 
 Private Sub help_Click() '6399C0
   var_5C = "Veci které sebereš si ukládají do inventáre, potom je zase mužeš používat systémem Drag and Drop (proste chytneš myší a pak pustíš <vysvetlivka pro ženy>). Než prvedeš nejakou akci je dobré chvíli ponechat myš nad predmetem, ukáže se vám informace o predmetu (hodí se zejména pri zjištování cen u nakupovaných predmetu). Pokud chceš opustit obrazovku, hledej dvere, pokud tam nejsou zkus okraj obrázku. To je tak vše, hra není težká na ovládání."
-  MsgBox(var_5C, 0, 10, 10, 10)
+  a = MsgBox(var_5C, 0, 10, 10, 10)
   GoTo loc_00639AA1
   Exit Sub
 loc_00639AA1:
@@ -3272,7 +3245,7 @@ loc_00636D39:
 End Sub
 
 Private Sub výloha_Click() '645EB0
-  If (Form2.sklo1.PictureBox.Visible = 0) Then
+  If (Form2.sklo1.Visible = 0) Then
     Form2.text.Caption = "Úplne obycejná výloha, je v ní cedule na který stojí: Otevreno 24 hodin denne. To znamená, že maj otevreno i ted."
   End If
   If (Form2.sklo1.Visible = True) Then
@@ -3698,10 +3671,9 @@ loc_0063EC18:
 End Sub
 
 Private Sub Timer1_Timer() '6437B0
-  Dim global_52 As Variant
   Form2.money.text = global_52
   
-  If global_52 < 0 Then
+  If global_52 <= 0 Then
       a = MsgBox("Bohužel si utratil veškerý peníze, bez penez ni nedokážeš. Koncís", 0, 10, 10, 10)
       End
   End If
