@@ -1659,7 +1659,7 @@ Private Declare Function sndPlaySound Lib "winmm.dll" Alias "sndPlaySoundA" ( _
     ByVal lpszSoundName As String, _
     ByVal uFlags As Long) As Long
     
-Public global_52 As Long
+Public moneylong As Long
 
 Private Sub pivo_Click() '63FC80
   Form2.pivo.Visible = False
@@ -1667,7 +1667,7 @@ Private Sub pivo_Click() '63FC80
   If global_58 = 1 Then
     Form2.text.Caption = "Za 12Kc sis koupil jedno pifko"
     If global_58 = 1 Then
-      global_52 = CStr((global_52 - 12))
+      moneylong = CStr((moneylong - 12))
     End If
   End If
   If global_58 = 0 Then
@@ -1841,7 +1841,7 @@ Private Sub prodavaè_DragDrop(Source As Control, X As Single, Y As Single) '6405
   Set  = Form2.lahev(var_40)
   Set  = Source()
   If (var_50 = var_40) Then
-    global_52 = CStr((global_52 + 13000))
+    moneylong = CStr((moneylong + 13000))
   End If
   Set  = Form2.lahev.PictureBox(var_40)
   Set  = Source()
@@ -1889,7 +1889,7 @@ loc_0063DBF1:
 loc_0063DCA8:
   var_20 = Form2.ProdavaèDEATH.Visible
   If ebx Then
-    global_52 = CStr((global_52 - 500))
+    moneylong = CStr((moneylong - 500))
   End If
   If (Form2.ProdavaèDEATH.Visible = True) Then
     Form2.kleštì.Visible = False
@@ -1956,7 +1956,7 @@ Private Sub kufr_Click() '63E240
 loc_0063E3B4:
   var_20 = Form2.ProdavaèDEATH.Visible
   If ebx Then
-    global_52 = CStr((global_52 - 13000))
+    moneylong = CStr((moneylong - 13000))
   End If
   GoTo loc_0063E475
 loc_0063E475:
