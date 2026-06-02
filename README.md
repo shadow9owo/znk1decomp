@@ -8,3 +8,5 @@ Tools : vb-decompiler.org (paid) , microsoft visual basic 6.0 , visual studio co
 status: <br>
 Form1 - finished<br>
 Form2 - 10%
+
+contact : shadowdevreal@protonmail.com
