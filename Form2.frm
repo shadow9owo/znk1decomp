@@ -2010,7 +2010,7 @@ Private Sub PenízeI_DragDrop(Source As Control, X As Single, Y As Single) '63F10
   Set 0 = Form2.KufrI(var_2C)
   Set 0 = Source(0)
   If (Source = var_2C) Then
-    global_52 = CStr((global_52 + 5000000))
+    moneylong = CStr((moneylong + 5000000))
   End If
   Set  = Form2.KufrI.PictureBox(var_2C)
   Set 0 = Source(0)
@@ -2046,7 +2046,7 @@ Private Sub pistole_Click() '63F4B0
   var_20 = Form2.pas.Visible
   GoTo loc_0063F77C
   If eax Then
-    global_52 = CStr((global_52 - 6000))
+    moneylong = CStr((moneylong - 6000))
   End If
   Form2.text.Caption = "Nemáš prachy"
   If (Form2.pas.Visible = 0) Then
@@ -2118,7 +2118,7 @@ Private Sub rukavice_Click() '641E60
 loc_00641FD4:
   var_20 = Form2.ProdavaèDEATH.Visible
   If ebx Then
-    global_52 = CStr((global_52 - 5000))
+    moneylong = CStr((moneylong - 5000))
   End If
   GoTo loc_00642095
 loc_00642095:
@@ -2182,7 +2182,7 @@ Private Sub ProdavaèLOOK_DragDrop(Source As Control, X As Single, Y As Single) '
   Set  = Form2.lahev(var_40)
   Set  = Source()
   If (var_50 = var_40) Then
-    global_52 = CStr((global_52 + 13000))
+    moneylong = CStr((moneylong + 13000))
   End If
   Set  = Form2.lahev.PictureBox(var_40)
   Set  = Source()
@@ -2288,7 +2288,7 @@ Private Sub Form_Load() '6397A0
   global_56 = 1
   global_58 = 1
   global_60 = 1
-  global_52 = 700
+  moneylong = 700
   Form2.Timer1.Interval = CLng(1)
   var_74 = "UPOZORNENÍ PRO PRECITLIVELÉ POVAHY: Hra obsahuje mnoho brutálního chování a vulgárních slov. Hraním této hry na sebe berete veškerou zodpovednost, pokud se vám hra nelíbí, tak jí nehrajte. Dekuji, prípadné dotazy = marty@northcrewz.tk"
   a = MsgBox(var_74, 0, 10, 10, 10)
@@ -2317,7 +2317,7 @@ Private Sub tulákubodán_Click() '644D20
   If global_56 = 1 Then
     Form2.text.Caption = "Pred sebou vidíš tuláka, kterého jsi pred chvílí ubodal. Nic u sebe nemel, až na 20Kc, které sis vzal"
     If global_56 = 1 Then
-      global_52 = CStr((global_52 + 20))
+      moneylong = CStr((moneylong + 20))
       If global_56 = 1 Then
       End If
     End If
@@ -2448,7 +2448,7 @@ Private Sub absinth_Click() '635790
   If global_58 = 1 Then
     Form2.text.Caption = "Za 360Kc sis koupil láhev absinthu"
     If global_58 = 1 Then
-      global_52 = CStr((global_52 - 360))
+      moneylong = CStr((moneylong - 360))
     End If
   End If
   If global_58 = 0 Then
@@ -3034,7 +3034,7 @@ Private Sub atomovka_Click() '6365C0
   var_20 = Form2.pas.Visible
   GoTo loc_0063688C
   If eax Then
-    global_52 = CStr((global_52 - 500000))
+    moneylong = CStr((moneylong - 500000))
   End If
   Form2.text.Caption = "Nemáš prachy"
   If (Form2.pas.Visible = 0) Then
@@ -3198,7 +3198,7 @@ Private Sub Brokovnice_Click() '636EA0
   var_20 = Form2.pas.Visible
   GoTo loc_0063716C
   If eax Then
-    global_52 = CStr((global_52 - 12000))
+    moneylong = CStr((moneylong - 12000))
   End If
   Form2.text.Caption = "Nemáš prachy"
   If (Form2.pas.Visible = 0) Then
@@ -3671,9 +3671,9 @@ loc_0063EC18:
 End Sub
 
 Private Sub Timer1_Timer() '6437B0
-  Form2.money.text = global_52
+  Form2.money.text = moneylong
   
-  If global_52 <= 0 Then
+  If moneylong <= 0 Then
       a = MsgBox("Bohužel si utratil veškerý peníze, bez penez ni nedokážeš. Koncís", 0, 10, 10, 10)
       End
   End If
@@ -3781,7 +3781,7 @@ Private Sub whiskey_Click() '6469D0
   If global_58 = 1 Then
     Form2.text.Caption = "Za 500 Kc sis koupil lahvinku Whiskey"
     If global_58 = 1 Then
-      global_52 = CStr((global_52 - 500))
+      moneylong = CStr((moneylong - 500))
     End If
   End If
   If global_58 = 0 Then

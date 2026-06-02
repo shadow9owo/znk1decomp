@@ -211,7 +211,6 @@ Private Sub popis_Click() '6352B0
     Form1.popis.Caption = "Život Není Krásný"
     Exit Sub
   End If
-  GoTo loc_00635458
   Exit Sub
 End Sub
 
