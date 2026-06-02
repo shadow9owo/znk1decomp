@@ -203,23 +203,26 @@ Private Declare Function sndPlaySound Lib "winmm" Alias "sndPlaySoundA" (ByVal l
 
 
 Private Sub popis_Click() '6352B0
-  If (Form1.popis.Caption = "Život Není Krásný") + 1 Then
+  If (Form1.popis.Caption = "Život Není Krásný") Then
     Form1.zaèátek.Visible = False
+    Exit Sub
   End If
-  If (Form1.popis.Caption = "Martin 'Marty' Pohl uwádí hru") + 1 Then
+  If (Form1.popis.Caption = "Martin 'Marty' Pohl uwádí hru") Then
     Form1.popis.Caption = "Život Není Krásný"
+    Exit Sub
   End If
   GoTo loc_00635458
   Exit Sub
-loc_00635458:
 End Sub
 
 Private Sub zaèátek_Click() '6355C0
-  If (Form1.popis.Caption = "Život Není Krásný") + 1 Then
+  If (Form1.popis.Caption = "Život Není Krásný") Then
     Form1.zaèátek.Visible = False
+    Exit Sub
   End If
-  If (Form1.popis.Caption = "Martin 'Marty' Pohl uwádí hru") + 1 Then
+  If (Form1.popis.Caption = "Martin 'Marty' Pohl uwádí hru") Then
     Form1.popis.Caption = "Život Není Krásný"
+    Exit Sub
   End If
   GoTo loc_00635768
   Exit Sub
