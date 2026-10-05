@@ -1,0 +1,235 @@
+namespace ZNK;
+
+// Handlers translated by hand from the decompiled native code, because the
+// decompiler output for them needed interpretation (money arithmetic, sounds,
+// message boxes, compound conditions).
+//
+// The original is a flat list of independent "If ... Then" lines, each of which
+// re-reads the current state. That order is kept exactly, including the cases
+// where it produces the original game's quirks (see README).
+sealed partial class GameForm
+{
+    void Form_Load()
+    {
+        f_3e = 0;
+        f_38 = 1;
+        f_3a = 1;
+        f_3c = 1;
+        f_40 = 0;
+        f_44 = 0;
+        f_48 = 0;
+        money = 700;
+        if (bonus == 1) money += 5000000;
+        timers["Timer1"].Interval = 50;      // original: enabled with the minimum interval
+        timers["Timer1"].Tick += (s, a) => Timer1_Timer();
+        timers["Timer1"].Start();
+        Shown += (s, a) => MsgBox(T("UPOZORNĚNÍ PRO"));
+    }
+
+    void Timer1_Timer()
+    {
+        SetText("money", MoneyText());
+        if (f_46 == 3) { Hide("PoklopSPECIAL"); Show("Tlačítko"); }
+        if (money < 0)
+        {
+            timers["Timer1"].Stop();
+            MsgBox(T("Bohužel si utratil"));
+            End();
+        }
+    }
+
+    void help_Click() => MsgBox(T("Věci které sebereš"));
+    void vobraZ_Click() => MsgBox(T("RESPECT TO:"));
+    void konec_Click() => End();
+    void Label1_Click() => End();
+
+    // ------------------------------------------------------------ the pub
+
+    void absinth_Click()
+    {
+        Hide("absinth");
+        Show("absinthI");
+        if (f_3a == 1) { Say(T("Za 360Kč")); money -= 360; }
+        if (f_3a == 0) Say(T("Vzal sis pivo"));
+    }
+
+    void pivo_Click()
+    {
+        Hide("pivo");
+        Show("PivoI");
+        if (f_3a == 1) { Say(T("Za 12Kč")); money -= 12; }
+        if (f_3a == 0) Say(T("Vzal sis pivo"));
+    }
+
+    void whiskey_Click()
+    {
+        Hide("whiskey");
+        Show("whiskeyI");
+        if (f_3a == 1) { Say(T("Za 500 Kč")); money -= 500; }
+        if (f_3a == 0) Say(T("Vzal sis Whiskey"));
+    }
+
+    // ------------------------------------------------------ the army shop
+
+    void atomovka_Click()
+    {
+        if (V("pas") && money > 500000) { Hide("atomovka"); Show("atomovkaI"); Say(T("Koupil sis chlapečka")); money -= 500000; }
+        if (money < 500000) Say(T("Nemáš prachy"));
+        if (!V("pas")) Say(T("Nemáš zbrojní pas"));
+    }
+
+    void Brokovnice_Click()
+    {
+        if (V("pas") && money > 12000) { Hide("Brokovnice"); Show("BrokovniceI"); Say(T("Koupil sis brokovnici")); money -= 12000; }
+        if (money < 12000) Say(T("Nemáš prachy"));
+        if (!V("pas")) Say(T("Nemáš zbrojní pas"));
+    }
+
+    void pistole_Click()
+    {
+        if (V("pas") && money > 6000) { Hide("pistole"); Show("pistoleI"); Say(T("Koupil sis bouchačku")); money -= 6000; }
+        if (money < 6000) Say(T("Nemáš prachy"));
+        if (!V("pas")) Say(T("Nemáš zbrojní pas"));
+    }
+
+    // ----------------------------------------------------------- the shop
+
+    void Image6_Click()
+    {
+        if (!V("ProdavačDEATH")) { Show("Obchod"); Hide("obchodIN"); Say(T("Vyšel jsi před obchod")); }
+        if (V("ProdavačDEATH") && f_3c == 0) Say(T("Vyšel jsi před obchod"));
+        if (V("ProdavačDEATH") && f_3c == 0) Show("Obchod");
+        if (V("ProdavačDEATH") && f_3c == 0) Hide("obchodIN");
+        if (V("ProdavačDEATH") && f_3c == 1) Hide("lahev");
+        if (V("ProdavačDEATH") && f_3c == 1) Hide("inventář");
+        if (V("ProdavačDEATH") && f_3c == 1) Show("policie");
+        if (V("ProdavačDEATH") && f_3c == 1) Say(T("Bohužel kamera nahrála"));
+        if (V("ProdavačDEATH") && f_3c == 1) Hide("obchodIN");
+    }
+
+    void kameros_Click()
+    {
+        if (f_3c == 1) Say(T("Kamera je plně"));
+        if (f_3c == 0) Say(T("Vypadá to, že kamera"));
+    }
+
+    void kameros_DragDrop(Control src)
+    {
+        if (src == C("kleštěI") && V("prodavač")) Say(T("PRODAVAĎ: Vypadni"));
+        if (src == C("kleštěI") && !V("prodavač")) f_3c = 0;
+        if (src == C("kleštěI") && !V("prodavač")) Say(T("Vyřadil jsi kameru"));
+    }
+
+    void kleště_Click()
+    {
+        if (money < 500) Say(T("Na kleštičky nemáš"));
+        if (!V("ProdavačDEATH") && money > 500) Hide("kleště");
+        if (!V("ProdavačDEATH") && money > 500) Show("kleštěI");
+        if (!V("ProdavačDEATH") && money > 500) Say(T("Koupil sis pěkné"));
+        if (!V("ProdavačDEATH") && money > 500) money -= 500;
+        if (V("ProdavačDEATH")) Hide("kleště");
+        if (V("ProdavačDEATH")) { Show("kleštěI"); Say(T("Vzal sis kleště")); }
+    }
+
+    void kufr_Click()
+    {
+        if (money < 13000) Say(T("Na ten kufr nemáš"));
+        if (!V("ProdavačDEATH") && money > 13000) Say(T("Koupil sis super"));
+        if (!V("ProdavačDEATH") && money > 13000) money -= 13000;
+        if (!V("ProdavačDEATH") && money > 13000) Hide("kufr");     // re-reads money after paying (original quirk)
+        if (!V("ProdavačDEATH") && money > 13000) Show("KufrI");
+        if (V("ProdavačDEATH")) Hide("kufr");
+        if (V("ProdavačDEATH")) Show("KufrI");
+        if (V("ProdavačDEATH")) Say(T("Vzal sis skvělej"));
+    }
+
+    void rukavice_Click()
+    {
+        if (money < 5000) Say(T("Nemáš tolik peněz"));
+        if (!V("ProdavačDEATH") && money > 5000) Say(T("Koupil sis speciální"));
+        if (!V("ProdavačDEATH") && money > 5000) money -= 5000;
+        if (!V("ProdavačDEATH") && money > 5000) Hide("rukavice");  // re-reads money after paying (original quirk)
+        if (!V("ProdavačDEATH") && money > 5000) Show("rukaviceI");
+        if (V("ProdavačDEATH")) Hide("rukavice");
+        if (V("ProdavačDEATH")) Show("rukaviceI");
+        if (V("ProdavačDEATH")) Say(T("Vzal sis speciální"));
+    }
+
+    void prodavač_DragDrop(Control src)
+    {
+        if (src == C("lahev"))
+        {
+            PlaySound(T("bum.wav"));
+            Hide("prodavač");
+            Show("ProdavačDEATH");
+            Say(T("Zabil jsi ho a našel"));
+            money += 13000;
+            Hide("kameros");
+            Tip("kleště", T("Seber kleště"));
+            Tip("kufr", T("Seber kufr"));
+            Tip("rukavice", T("Seber rukavice"));
+        }
+    }
+
+    void ProdavačLOOK_DragDrop(Control src)
+    {
+        if (src == C("lahev"))
+        {
+            Hide("ProdavačLOOK");
+            Show("ProdavačDEATH");
+            PlaySound(T("bum.wav"));
+            Say(T("Zabil jsi ho a našel"));
+            money += 13000;
+            Hide("kameros");
+            Tip("kleště", T("Seber kleště"));
+            Tip("kufr", T("Seber kufr"));
+            Tip("rukavice", T("Seber rukavice"));
+        }
+    }
+
+    void výloha_DragDrop(Control src)
+    {
+        if (src == C("Kámen")) PlaySound(T("sklo.wav"));
+        if (src == C("Kámen") && !V("sklo1")) Say(T("Udělal jsi do výlohy"));
+        if (src == C("Kámen") && !V("sklo1")) Show("sklo2");
+        if (src == C("Kámen") && !V("sklo1")) Show("ProdavačLOOK");
+        if (src == C("Kámen") && !V("sklo1")) Hide("prodavač");
+        if (src == C("Kámen") && !V("sklo1")) Hide("Kámen");
+        if (src == C("Kámen") && !V("sklo1")) Show("sklo1");
+    }
+
+    // ---------------------------------------------------------- the house
+
+    void PenízeI_DragDrop(Control src)
+    {
+        if (src == C("KufrI")) Say(T("Naskládal jsi peníze"));
+        if (src == C("KufrI")) money += 5000000;
+        if (src == C("KufrI")) Hide("PenízeI");
+        if (src == C("KufrI")) Tip("KufrI", T("Naplněný kufr"));
+    }
+
+    void pryč_Click()
+    {
+        Hide("vchod");
+        Show("dům");
+        Say(T("Jsi zase před zdí"));
+        if (money > 5000000) { Hide("dům"); Show("pláž"); Hide("inventář"); Hide("lahev"); Say(T("Podařilo se ti uprchnout")); }
+        if (f_40 == 2) { Hide("dům"); Hide("pláž"); Show("policie"); Say(T("Bohužel jsi na místě")); Hide("inventář"); Hide("lahev"); }
+        if (f_42 == 2) { Hide("dům"); Show("policie"); Hide("pláž"); Say(T("Zřejmě tě v domě")); Hide("inventář"); Hide("lahev"); }
+        if (f_44 == 2) { Say(T("Sousedé zřejmě")); Show("policie"); Hide("dům"); Hide("pláž"); Hide("inventář"); Hide("lahev"); }
+    }
+
+    // --------------------------------------------------------- the street
+
+    void tulák_Click()
+    {
+        Say(T("TULÁK: Eh"));
+        if (f_48 == 1) Say(T("TUlÁK: Díky kámo"));
+    }
+
+    void tulákubodán_Click()
+    {
+        if (f_38 == 0) Say(T("Už u sebe nic nemá"));
+        if (f_38 == 1) { Say(T("Před sebou vidíš tuláka")); money += 20; f_38 = 0; }
+    }
+}
