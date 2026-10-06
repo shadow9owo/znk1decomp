@@ -343,15 +343,6 @@ namespace ZNK
             if (src == GetControlSafe("zápalkyI") && FalloutEndCivInteractedWith == 3) { 
                 Hide("PoklopSPECIAL"); Show("Tlačítko");
             }
-            if (src == GetControlSafe("zápalkyI") && FalloutEndCivInteractedWith == 2) { 
-                FalloutEndCivInteractedWith = 3;
-            }
-            if (src == GetControlSafe("zápalkyI") && FalloutEndCivInteractedWith == 1) { 
-                FalloutEndCivInteractedWith = 2; 
-            }
-            if (src == GetControlSafe("zápalkyI") && FalloutEndCivInteractedWith == 0) {
-                FalloutEndCivInteractedWith = 1;
-            }
 
             if (src == GetControlSafe("zápalkyI"))
             {

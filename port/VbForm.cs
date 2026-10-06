@@ -22,7 +22,7 @@ namespace ZNK
         protected VbForm()
         {
             Text = Program.Title;
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle; //bordered because borderless is overrated
             StartPosition = FormStartPosition.CenterScreen;
             ClientSize = new Size(800, 600);
             AutoScaleMode = AutoScaleMode.None;
