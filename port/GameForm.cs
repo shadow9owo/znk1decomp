@@ -27,15 +27,16 @@ namespace ZNK
         double money;
         string snd = "";
 
-        int DoesHomelessMoney;   // 1 = the stabbed tramp still has his 20 Kč
-        int IsBartenderAlive;   // 1 = the waiter is alive (drinks cost money)
-        int IsLiveLeakCamAlive;   // 1 = the shop camera is working
-        int FlashlightBatteryState;   // 1 = the flashlight has batteries
-        int HouseFingerPrints;   // house door: 1 = opened wearing gloves, 2 = left fingerprints
-        int HouseCamera;   // 2 = filmed by the hidden camera at the house
-        int BedroomKillSilencer;   // shots in the bedroom: 1 = silenced, 2 = loud
+        bool DoesHomelessMoney;   // 1 = the stabbed tramp still has his 20 Kč
+        bool IsBartenderAlive;   // 1 = the waiter is alive (drinks cost money)
+        bool HomelessGotBeer;   // 1 = the tramp got his beer
+        bool IsLiveLeakCamAlive;   // 1 = the shop camera is working
+        bool FlashlightBatteryState;   // 1 = the flashlight has batteries
+        bool HouseFingerPrints;   // house door: 1 = opened wearing gloves, 2 = left fingerprints
+        bool HouseCamera;   // 2 = filmed by the hidden camera at the house
+        bool BedroomKillSilencer;   // shots in the bedroom: 1 = silenced, 2 = loud
+
         int FalloutEndCivInteractedWith;   // number of cheered-up villains in the secret room (0..3)
-        int HomelessGotBeer;   // 1 = the tramp got his beer
 
         public GameForm(int bonus)
         {

@@ -186,7 +186,7 @@ namespace ZNK
                 Say("Narval si baterky do baterky a hle! Fugnuje!"); 
                 Hide("baterky"); 
                 Tip("baterka", "Funkční Baterka");
-                FlashlightBatteryState = 1;
+                FlashlightBatteryState = true;
             }
         }
 
@@ -213,7 +213,7 @@ namespace ZNK
         {
             if (src == GetControlSafe("lahev")) { 
                 Show("číšníkubodán"); 
-                IsBartenderAlive = 0; 
+                IsBartenderAlive = false; 
                 snd = "bum.wav"; 
                 PlaySound(snd);
                 Say("Sice si parádně odrovnal toho grázla, ale v naplněným lokále to asi nebyl moc dobrej nápad");
@@ -289,7 +289,7 @@ namespace ZNK
             Hide("Uvnitř");
             Say("Vstoupil jsi k šéfikovi do ložnice...");
             if (IsOwnVisible("skrytoš")) {
-                HouseCamera = 2;
+                HouseCamera = false;
             }
         }
 
@@ -325,10 +325,10 @@ namespace ZNK
         {
             Hide("Dveře");
             if (!IsOwnVisible("rukaviceI")) {
-                HouseFingerPrints = 2; 
+                HouseFingerPrints = false; 
             }
             if (IsOwnVisible("rukaviceI")) {
-                HouseFingerPrints = 1; 
+                HouseFingerPrints = true; 
             }
             Say("No, tak nejsou tak zamčený jak vypadali... můžeš vejít");
         }
@@ -504,27 +504,20 @@ namespace ZNK
         void Image5_Click()
         {
             Hide("HospodaIN");
-            if (IsBartenderAlive == 1)
+            if (IsBartenderAlive)
             {
                 Show("hospoda");
-                if (IsBartenderAlive == 1) { 
+                if (IsBartenderAlive) { 
                     Say("Vyšel jsi před hospodu");
+
                 }
             }
-            if (IsBartenderAlive == 0)
+            else
             {
                 Show("policie");
-                if (IsBartenderAlive == 0)
-                {
-                    Hide("inventář");
-                    if (IsBartenderAlive == 0)
-                    {
-                        Hide("lahev");
-                        if (IsBartenderAlive == 0) { 
-                            Say("Tak tohle se ti moc nevydařilo - lidi přivolali policie a ta tě zatkla. Vypadá to, že už se svýmu šéfovi nepomstíš. Tohle je tvůj konec!");
-                        }
-                    }
-                }
+                Hide("inventář");
+                Hide("lahev");
+                Say("Tak tohle se ti moc nevydařilo - lidi přivolali policie a ta tě zatkla. Vypadá to, že už se svýmu šéfovi nepomstíš. Tohle je tvůj konec!");
             }
         }
 
@@ -763,7 +756,7 @@ namespace ZNK
             if (src == GetControlSafe("pistoleI")) {
                 Show("šéfGUN");
                 Say("Napálil si ro přímo do voka. Byla to docela rána");
-                BedroomKillSilencer = 2;
+                BedroomKillSilencer = false;
                 snd = "Shoot.wav";
                 PlaySound(snd);
             }
@@ -771,7 +764,7 @@ namespace ZNK
             if (src == GetControlSafe("PistoleII")) {
                 Show("šéfGUN");
                 Say("Pěkne si ho střelil přímo do oka. Ten tlumič tlumí slušně!"); 
-                BedroomKillSilencer = 1; 
+                BedroomKillSilencer = true; 
                 snd = "ShootTl.wav";
                 PlaySound(snd);
             }
@@ -779,7 +772,7 @@ namespace ZNK
             if (src == GetControlSafe("BrokovniceI")) {
                 Show("šéfSHOTGUN");
                 Say("Prásk! Hlava se mu rozprskla po polštáři! To byla ale rána");
-                BedroomKillSilencer = 2; 
+                BedroomKillSilencer = false; 
                 snd = "Shoot.wav"; 
                 PlaySound(snd);
             }
@@ -828,7 +821,7 @@ namespace ZNK
                 Say("Zápalky jsou trapný");
             }
 
-            if (src == GetControlSafe("baterka") && FlashlightBatteryState == 1) { 
+            if (src == GetControlSafe("baterka") && FlashlightBatteryState) { 
                 Hide("tma");
                 Say("Teď už tam můžeš vniknout bez problémů");
                 Hide("baterka"); 
@@ -849,7 +842,7 @@ namespace ZNK
                 Say("TUlÁK: Jé, díky moc! Nemám co bych ti za to dal, ale alespoň ti povím kde je v tomhle měste nově otevřenej obchod se zbraněma! (řekl ti kudy se tam dostaneš)"); 
                 Hide("PivoI"); 
                 Hide("skrývač"); 
-                HomelessGotBeer = 1; 
+                HomelessGotBeer = true; 
             }
 
             if (src == GetControlSafe("absinthI")) { 
@@ -963,7 +956,7 @@ namespace ZNK
         {
             if (src == GetControlSafe("pistoleI")) { 
                 Show("ženaGUN"); Say("Střelils jí přímo mezi voči. Docela šlupa!");
-                BedroomKillSilencer = 2;
+                BedroomKillSilencer = false;
                 snd = "Shoot.wav";
                 PlaySound(snd); 
             }
@@ -971,7 +964,7 @@ namespace ZNK
             if (src == GetControlSafe("PistoleII")) {
                 Show("ženaGUN");
                 Say("Trefil ses přímo mezi voči! Tlumič tlumí");
-                BedroomKillSilencer = 1;
+                BedroomKillSilencer = true;
                 snd = "ShootTl.wav"; 
                 PlaySound(snd);
             }
@@ -979,7 +972,7 @@ namespace ZNK
             if (src == GetControlSafe("BrokovniceI")) { 
                 Show("ženaSHOTGUN");
                 Say("To byla ďaha! Hlava jí rupla jak meloun");
-                BedroomKillSilencer = 2;
+                BedroomKillSilencer = false;
                 snd = "Shoot.wav";
                 PlaySound(snd);
             }
