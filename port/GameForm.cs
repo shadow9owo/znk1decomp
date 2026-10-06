@@ -8,6 +8,9 @@ using global::System.Threading;
 using global::System.Threading.Tasks;
 using global::System.Windows.Forms;
 
+using static ZNK.Helpers.GameData;
+using static ZNK.Helpers.Form.FormHelpers;
+
 namespace ZNK
 {
 
@@ -24,17 +27,15 @@ namespace ZNK
         double money;
         string snd = "";
 
-        // Form-level variables of the original, named by their offset in the
-        // compiled form object. Meanings are inferred from how they are used.
-        int f_38;   // 1 = the stabbed tramp still has his 20 Kč
-        int f_3a;   // 1 = the waiter is alive (drinks cost money)
-        int f_3c;   // 1 = the shop camera is working
-        int f_3e;   // 1 = the flashlight has batteries
-        int f_40;   // house door: 1 = opened wearing gloves, 2 = left fingerprints
-        int f_42;   // 2 = filmed by the hidden camera at the house
-        int f_44;   // shots in the bedroom: 1 = silenced, 2 = loud
-        int f_46;   // number of cheered-up villains in the secret room (0..3)
-        int f_48;   // 1 = the tramp got his beer
+        int DoesHomelessMoney;   // 1 = the stabbed tramp still has his 20 Kč
+        int IsBartenderAlive;   // 1 = the waiter is alive (drinks cost money)
+        int IsLiveLeakCamAlive;   // 1 = the shop camera is working
+        int FlashlightBatteryState;   // 1 = the flashlight has batteries
+        int HouseFingerPrints;   // house door: 1 = opened wearing gloves, 2 = left fingerprints
+        int HouseCamera;   // 2 = filmed by the hidden camera at the house
+        int BedroomKillSilencer;   // shots in the bedroom: 1 = silenced, 2 = loud
+        int FalloutEndCivInteractedWith;   // number of cheered-up villains in the secret room (0..3)
+        int HomelessGotBeer;   // 1 = the tramp got his beer
 
         public GameForm(int bonus)
         {
