@@ -12,6 +12,7 @@
     <NoWarn>CS8981;IDE1006</NoWarn>
     <StartupObject>ZNK.Program</StartupObject>
     <PlatformTarget>AnyCPU</PlatformTarget>
+    <AssemblyTitle>ZivotNeniKrasny</AssemblyTitle>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Assets\**" CopyToOutputDirectory="PreserveNewest" />

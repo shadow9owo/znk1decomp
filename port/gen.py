@@ -21,6 +21,30 @@ for o in range(0x38000, 0x3f000, 4):
 lits = sorted(set(lits))
 cs = lambda s: json.dumps(s, ensure_ascii=False)
 
+def strip_blank_frames(ico):
+    """Drops icon images that were never drawn (32-bit, every pixel zero).
+
+    The original icons carry an empty 48x48 frame next to the real 32x32 one,
+    and Explorer and most viewers pick the empty one and show a black square.
+    """
+    reserved, kind, count = struct.unpack_from('<HHH', ico, 0)
+    if kind != 1: return ico
+    keep = []
+    for i in range(count):
+        entry = ico[6 + 16 * i:22 + 16 * i]
+        size, off = struct.unpack_from('<II', entry, 8)
+        img = ico[off:off + size]
+        header, bpp = struct.unpack_from('<I', img, 0)[0], struct.unpack_from('<H', img, 14)[0]
+        w, h = struct.unpack_from('<i', img, 4)[0], abs(struct.unpack_from('<i', img, 8)[0]) // 2
+        pixels = img[header:header + w * 4 * h]
+        if bpp == 32 and not any(pixels): continue
+        keep.append((entry, img))
+    if not keep or len(keep) == count: return ico
+    out, off = struct.pack('<HHH', 0, 1, len(keep)), 6 + 16 * len(keep)
+    for entry, img in keep:
+        out += entry[:12] + struct.pack('<I', off); off += len(img)
+    return out + b''.join(img for entry, img in keep)
+
 def resolve(text, fname):
     def rep(m):
         p = json.loads('"%s"' % m.group(1))
@@ -98,6 +122,7 @@ used = {c.get(k) for f in lay.values() for c in f for k in ('picture', 'mouseIco
 for u in used:
     dst = os.path.join(A, 'images', u); os.makedirs(os.path.dirname(dst), exist_ok=True)
     shutil.copyfile(os.path.join(REC, 'images', u), dst)
+    if u.endswith('.ico'): open(dst, 'wb').write(strip_blank_frames(open(os.path.join(REC, 'images', u), 'rb').read()))
 shutil.copyfile(os.path.join(REC, 'layout.json'), os.path.join(A, 'layout.json'))
 os.makedirs(os.path.join(A, 'sounds'), exist_ok=True)
 for w in glob.glob(os.path.join(ZNK, '*.wav')): shutil.copyfile(w, os.path.join(A, 'sounds', os.path.basename(w)))
@@ -105,7 +130,7 @@ for w in glob.glob(os.path.join(ZNK, '*.wav')): shutil.copyfile(w, os.path.join(
 o = exe.index(b'\x00\x22\x00\x23', 0x1a68) + 4
 n = struct.unpack_from('<I', exe, o + 8)[0]
 os.makedirs(os.path.join(A, 'images', 'icons'), exist_ok=True); os.makedirs(os.path.join(A, 'icons'), exist_ok=True)
-open(os.path.join(A, 'icons', 'app.ico'), 'wb').write(exe[o + 12:o + 12 + n])
+open(os.path.join(A, 'icons', 'app.ico'), 'wb').write(strip_blank_frames(exe[o + 12:o + 12 + n]))
 
 # ---- every control the code names must exist in the layout
 bad = []
