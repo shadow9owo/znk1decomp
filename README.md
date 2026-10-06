@@ -7,7 +7,4 @@ na tento projekt **byla využita umělá intelligence** na pomoc decompilování
 demo vytvořeno umělou intelligencí bylo přepsáno pro **.net 4.8.1**
 tak aby kód byl čitelný a pochopitelný.
 
-dgz 2026
-
-
-
+dgz 2026 <a href="http://doomgames.cc">website</a>
