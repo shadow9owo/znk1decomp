@@ -9,6 +9,7 @@ using global::System.Windows.Forms;
 
 using static ZNK.Helpers.GameData;
 using static ZNK.Helpers.Form.FormHelpers;
+using static ZNK.Helpers.MathHelpers;
 
 namespace ZNK
 {
@@ -145,16 +146,9 @@ namespace ZNK
                 Show("Tlačítko");
             }
 
-            if (src == GetControlSafe("BrokovniceI") && FalloutEndCivInteractedWith == 2) { 
-                FalloutEndCivInteractedWith = 3;
-            }
-
-            if (src == GetControlSafe("BrokovniceI") && FalloutEndCivInteractedWith == 1) { 
-                FalloutEndCivInteractedWith = 2; 
-            }
-
-            if (src == GetControlSafe("BrokovniceI") && FalloutEndCivInteractedWith == 0) { 
-                FalloutEndCivInteractedWith = 1;
+            if (src == GetControlSafe("BrokovniceI"))
+            {
+                FalloutEndCivInteractedWith = Clamp(FalloutEndCivInteractedWith + 1, 0, 3);
             }
 
             if (src == GetControlSafe("BrokovniceI")) { 
@@ -358,6 +352,12 @@ namespace ZNK
             if (src == GetControlSafe("zápalkyI") && FalloutEndCivInteractedWith == 0) {
                 FalloutEndCivInteractedWith = 1;
             }
+
+            if (src == GetControlSafe("zápalkyI"))
+            {
+                FalloutEndCivInteractedWith = Clamp(FalloutEndCivInteractedWith + 1, 0, 3);
+            }
+
             if (src == GetControlSafe("zápalkyI")) { 
                 Show("fidelI");
                 Say("Ah, zapálil jsi mu doutníčka, teď už je spokojenej");
@@ -576,6 +576,7 @@ namespace ZNK
                 Show("Tlačítko"); 
             }
 
+            /*
             if (src == GetControlSafe("whiskeyI") && FalloutEndCivInteractedWith == 2) { //XDDDDDDDDDDD dobře řezník zajebal
                 FalloutEndCivInteractedWith = 3;
             }
@@ -586,6 +587,12 @@ namespace ZNK
 
             if (src == GetControlSafe("whiskeyI") && FalloutEndCivInteractedWith == 0) {
                 FalloutEndCivInteractedWith = 1; 
+            }
+            */
+
+            if (src == GetControlSafe("whiskeyI"))
+            {
+                FalloutEndCivInteractedWith = Clamp(FalloutEndCivInteractedWith + 1, 0, 3);
             }
 
             if (src == GetControlSafe("whiskeyI")) {
