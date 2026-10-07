@@ -4,9 +4,9 @@
 plan to replace with a dictionary 
 
 ## lack of game state tracker eg gamestate.cs the game boils down to a bunch of hardcoded if elses 
-considering that it was originaly written by 15 or so year old marty thats whatever mainly because he used visual basic
+considering that it was originally written by 15 or so year old marty thats whatever mainly because he used visual basic
 <br>
-biggest dumpster fire of a programming langue but whatever
+biggest dumpster fire of a programming language but whatever
 <br>
 plan to replace the if elses with a game state
 
