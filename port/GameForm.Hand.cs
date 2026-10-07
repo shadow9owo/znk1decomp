@@ -165,11 +165,11 @@ namespace ZNK
                 Say("Koupil sis bouchačku"); 
                 money -= 6000; 
             }
-            if (money < 6000)
+            else if (money < 6000)
             {
                 Say("Nemáš prachy");
             }
-            if (!IsOwnVisible("pas"))
+            else if (!IsOwnVisible("pas"))
             {
                 Say("Nemáš zbrojní pas");
             }
