@@ -21,3 +21,4 @@ packages/
 # OS junk
 Thumbs.db
 Desktop.ini
+/port/Claude outputs
