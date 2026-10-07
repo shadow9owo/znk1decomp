@@ -44,7 +44,7 @@
    "w": 653,
    "h": 468,
    "visible": false,
-   "picture": "000_0078c5_653x468.jpg",
+   "picture": "000_0078c5_653x468.png",
    "dragAuto": false
   },
   {
@@ -57,7 +57,7 @@
    "w": 653,
    "h": 468,
    "visible": false,
-   "picture": "002_0112d0_653x468.jpg",
+   "picture": "002_0112d0_653x468.png",
    "dragAuto": false
   },
   {
@@ -70,7 +70,7 @@
    "w": 653,
    "h": 468,
    "visible": false,
-   "picture": "004_01a0aa_653x468.jpg",
+   "picture": "004_01a0aa_653x468.png",
    "dragAuto": false
   },
   {
@@ -83,7 +83,7 @@
    "w": 653,
    "h": 468,
    "visible": true,
-   "picture": "006_025d0f_653x468.jpg",
+   "picture": "006_025d0f_653x468.png",
    "dragAuto": false
   },
   {
@@ -491,7 +491,7 @@
    "w": 653,
    "h": 468,
    "visible": false,
-   "picture": "026_049770_653x468.jpg",
+   "picture": "026_049770_653x468.png",
    "dragAuto": false
   },
   {
@@ -604,7 +604,7 @@
    "w": 653,
    "h": 468,
    "visible": false,
-   "picture": "032_06ed24_653x468.jpg",
+   "picture": "032_06ed24_653x468.png",
    "dragAuto": false
   },
   {
@@ -617,7 +617,7 @@
    "w": 399,
    "h": 96,
    "visible": false,
-   "picture": "034_0773c1_399x96.jpg",
+   "picture": "034_0773c1_399x96.png",
    "tooltip": "Prohledat typa",
    "dragAuto": false,
    "mouseIcon": "icons/ef0adbc3.ico"
@@ -632,7 +632,7 @@
    "w": 163,
    "h": 366,
    "visible": true,
-   "picture": "036_07e31f_163x366.jpg",
+   "picture": "036_07e31f_163x366.png",
    "tooltip": "Prohlídni týpka",
    "dragAuto": false,
    "mouseIcon": "icons/ef0adbc3.ico"
@@ -712,7 +712,7 @@
    "w": 653,
    "h": 468,
    "visible": false,
-   "picture": "038_093bf3_653x468.jpg",
+   "picture": "038_093bf3_653x468.png",
    "dragAuto": false
   },
   {
@@ -725,7 +725,7 @@
    "w": 138,
    "h": 78,
    "visible": false,
-   "picture": "040_09d640_138x78.jpg",
+   "picture": "040_09d640_138x78.png",
    "dragAuto": false,
    "mouseIcon": "icons/ef0adbc3.ico"
   },
@@ -739,7 +739,7 @@
    "w": 109,
    "h": 82,
    "visible": false,
-   "picture": "042_0a3a78_109x82.jpg",
+   "picture": "042_0a3a78_109x82.png",
    "dragAuto": false
   },
   {
@@ -752,7 +752,7 @@
    "w": 180,
    "h": 152,
    "visible": false,
-   "picture": "044_0a63a3_180x152.jpg",
+   "picture": "044_0a63a3_180x152.png",
    "tooltip": "Mrkni na něj",
    "dragAuto": false,
    "mouseIcon": "icons/ef0adbc3.ico"
@@ -812,7 +812,7 @@
    "w": 180,
    "h": 152,
    "visible": true,
-   "picture": "049_0b5d37_180x152.jpg",
+   "picture": "049_0b5d37_180x152.png",
    "tooltip": "Promluv s prodavačem",
    "dragAuto": false,
    "mouseIcon": "icons/b2fc3640.ico"
@@ -852,7 +852,7 @@
    "w": 653,
    "h": 468,
    "visible": false,
-   "picture": "051_0c196f_653x468.jpg",
+   "picture": "051_0c196f_653x468.png",
    "dragAuto": false
   },
   {
@@ -865,7 +865,7 @@
    "w": 109,
    "h": 82,
    "visible": false,
-   "picture": "053_0c95f6_109x82.jpg",
+   "picture": "053_0c95f6_109x82.png",
    "tooltip": "Díra",
    "dragAuto": false
   },
@@ -931,7 +931,7 @@
    "w": 653,
    "h": 468,
    "visible": false,
-   "picture": "055_0d79f5_653x468.jpg",
+   "picture": "055_0d79f5_653x468.png",
    "dragAuto": false
   },
   {
@@ -944,7 +944,7 @@
    "w": 268,
    "h": 226,
    "visible": false,
-   "picture": "057_0e014a_268x226.jpg",
+   "picture": "057_0e014a_268x226.png",
    "tooltip": "Prohlídnout číšu",
    "dragAuto": false,
    "mouseIcon": "icons/ef0adbc3.ico"
@@ -1058,7 +1058,7 @@
    "w": 653,
    "h": 468,
    "visible": false,
-   "picture": "063_101bd7_653x468.jpg",
+   "picture": "063_101bd7_653x468.png",
    "dragAuto": false
   },
   {
@@ -1137,7 +1137,7 @@
    "w": 653,
    "h": 468,
    "visible": true,
-   "picture": "066_11a75e_653x468.jpg",
+   "picture": "066_11a75e_653x468.png",
    "dragAuto": false
   },
   {
@@ -1150,7 +1150,7 @@
    "w": 56,
    "h": 40,
    "visible": true,
-   "picture": "068_126c39_56x40.jpg",
+   "picture": "068_126c39_56x40.png",
    "tooltip": "Sebrat lahev",
    "dragAuto": false,
    "mouseIcon": "icons/dd797213.ico"
@@ -1178,7 +1178,7 @@
    "w": 330,
    "h": 319,
    "visible": false,
-   "picture": "070_12e5c5_330x319.jpg",
+   "picture": "070_12e5c5_330x319.png",
    "tooltip": "Prohledat tuláka",
    "mouseIcon": "icons/ef0adbc3.ico"
   },
@@ -1218,7 +1218,7 @@
    "w": 653,
    "h": 468,
    "visible": false,
-   "picture": "072_140b19_653x468.jpg",
+   "picture": "072_140b19_653x468.png",
    "dragAuto": false
   },
   {
@@ -1231,7 +1231,7 @@
    "w": 653,
    "h": 468,
    "visible": false,
-   "picture": "074_1477bf_653x468.jpg",
+   "picture": "074_1477bf_653x468.png",
    "dragAuto": false
   },
   {
@@ -1323,7 +1323,7 @@
    "w": 653,
    "h": 468,
    "visible": false,
-   "picture": "076_15cc0b_653x468.jpg",
+   "picture": "076_15cc0b_653x468.png",
    "tooltip": "atomový hřib",
    "dragAuto": false,
    "mouseIcon": "icons/a301565e.ico"
@@ -1338,7 +1338,7 @@
    "w": 653,
    "h": 468,
    "visible": false,
-   "picture": "078_168b81_653x468.jpg",
+   "picture": "078_168b81_653x468.png",
    "dragAuto": false
   },
   {
@@ -1351,7 +1351,7 @@
    "w": 127,
    "h": 93,
    "visible": false,
-   "picture": "080_1757d8_127x93.jpg",
+   "picture": "080_1757d8_127x93.png",
    "tooltip": "Mrkni na Hitlera",
    "dragAuto": false,
    "mouseIcon": "icons/ef0adbc3.ico"
@@ -1366,7 +1366,7 @@
    "w": 67,
    "h": 100,
    "visible": false,
-   "picture": "082_17bba2_67x100.jpg",
+   "picture": "082_17bba2_67x100.png",
    "tooltip": "Mrkni na Stalina",
    "dragAuto": false,
    "mouseIcon": "icons/ef0adbc3.ico"
@@ -1396,7 +1396,7 @@
    "w": 93,
    "h": 113,
    "visible": false,
-   "picture": "085_1846d2_93x113.jpg",
+   "picture": "085_1846d2_93x113.png",
    "tooltip": "Mrkni na Kastra",
    "dragAuto": false,
    "mouseIcon": "icons/ef0adbc3.ico"
@@ -1489,7 +1489,7 @@
    "w": 653,
    "h": 468,
    "visible": false,
-   "picture": "087_19beec_653x468.jpg",
+   "picture": "087_19beec_653x468.png",
    "tooltip": "KONEC",
    "dragAuto": false,
    "mouseIcon": "icons/a301565e.ico"
@@ -1532,7 +1532,7 @@
    "w": 653,
    "h": 468,
    "visible": false,
-   "picture": "089_1b34b6_653x468.jpg",
+   "picture": "089_1b34b6_653x468.png",
    "dragAuto": false
   },
   {
@@ -1598,7 +1598,7 @@
    "w": 653,
    "h": 468,
    "visible": false,
-   "picture": "092_1c4b50_653x468.jpg",
+   "picture": "092_1c4b50_653x468.png",
    "dragAuto": false
   },
   {
@@ -1722,7 +1722,7 @@
    "w": 653,
    "h": 468,
    "visible": false,
-   "picture": "098_1ed678_653x468.jpg",
+   "picture": "098_1ed678_653x468.png",
    "dragAuto": false
   },
   {
@@ -1793,7 +1793,7 @@
    "w": 653,
    "h": 468,
    "visible": false,
-   "picture": "103_1ffa21_653x468.jpg",
+   "picture": "103_1ffa21_653x468.png",
    "dragAuto": false
   },
   {
@@ -1858,7 +1858,7 @@
    "w": 653,
    "h": 468,
    "visible": false,
-   "picture": "105_21839f_653x468.jpg",
+   "picture": "105_21839f_653x468.png",
    "dragAuto": false
   },
   {

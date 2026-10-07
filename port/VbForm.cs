@@ -123,7 +123,7 @@ namespace ZNK
             {
                 case "PictureBox":
                 case "Image":
-                    var pb = new PictureBox { SizeMode = PictureBoxSizeMode.Normal };
+                    var pb = new PointPictureBox { SizeMode = PictureBoxSizeMode.Normal };
                     pb.Image = Helpers.Loaders.LoadImage(Json.Str(e, "picture"));
                     // A VB Image is windowless and see-through; a VB PictureBox is opaque.
                     pb.BackColor = type == "Image" ? Color.Transparent : Json.OleColor(e, "backColor", SystemColors.Control);
@@ -173,6 +173,18 @@ namespace ZNK
 
             Helpers.GameData.byName[name] = control;
             return control;
+        }
+    }
+
+    // pixel art - draw with point (nearest neighbor) filtering instead of bilinear
+    [System.ComponentModel.DesignerCategory("Code")]
+    public class PointPictureBox : PictureBox
+    {
+        protected override void OnPaint(PaintEventArgs pe)
+        {
+            pe.Graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
+            pe.Graphics.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.Half;
+            base.OnPaint(pe);
         }
     }
 }

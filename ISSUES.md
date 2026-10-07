@@ -14,3 +14,6 @@ plan to fix by rewriting in blitengine when its ready (c99)
 
 ## missing launcher game quits if you lose 
 to be figured out
+
+## assets are compressed to shit
+will have to redraw manually
