@@ -1,5 +1,4 @@
 # ISSUES - znk 1 decomp
-<br>
 
 ## lack of a real inventory system 
 plan to replace with a dictionary 
