@@ -13,7 +13,6 @@ using static ZNK.Helpers.misc;
 
 namespace ZNK
 {
-
     // Handlers translated by hand from the decompiled native code, because the
     // decompiler output for them needed interpretation (money arithmetic, sounds,
     // message boxes, compound conditions).
@@ -219,7 +218,7 @@ namespace ZNK
         {
             if (src == GetControlSafe("kleštěI") && IsOwnVisible("prodavač"))
             {
-                Say("PRODAVAĎ: Vypadni vod tý kamery!");
+                Say("PRODAVAČ: Vypadni vod tý kamery!");
             }
             else if (src == GetControlSafe("kleštěI") && !IsOwnVisible("prodavač"))
             {
