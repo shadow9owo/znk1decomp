@@ -230,7 +230,11 @@ namespace ZNK
 
         void kleště_Click()
         {
-            if (money < 500) Say("Na kleštičky nemáš prachy, vole!");
+            if (money < 500 && !IsOwnVisible("ProdavačDEATH"))
+            {
+                Say("Na kleštičky nemáš prachy, vole!");
+                return;
+            }
 
             if (!IsOwnVisible("ProdavačDEATH") && money > 500)
             {
@@ -243,7 +247,7 @@ namespace ZNK
             {
                 Hide("kleště");
                 Show("kleštěI");
-                Say("Vzal sis kleště"); 
+                Say("Vzal sis kleště");
             }
         }
 
