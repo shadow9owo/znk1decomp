@@ -1,7 +1,9 @@
 # ISSUES - znk 1 decomp
 <br>
-## lack of a real inventory system - plan to replace with a dictionary 
+
+## lack of a real inventory system 
 <br>
+plan to replace with a dictionary 
 
 ## lack of game state tracker eg gamestate.cs the game boils down to a bunch of hardcoded if elses 
 <br><br>
