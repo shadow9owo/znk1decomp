@@ -22,6 +22,8 @@ namespace ZNK
     // where it produces the original game's quirks (see README).
     public partial class GameForm
     {
+        bool WasWarningShown = false;
+
         void Form_Load()
         {
             FlashlightBatteryState = false; //empty
@@ -31,7 +33,9 @@ namespace ZNK
             HouseFingerPrints = false;
             BedroomKillSilencer = true;
             HomelessGotBeer = false;
-            
+            HouseCamera = false;
+            FalloutEndCivInteractedWith = 0;
+
             money = 700;
             
             if (bonus)
@@ -39,18 +43,26 @@ namespace ZNK
                 money += 5000000;
             }
 
-            timers["Timer1"].Interval = 50;
-            timers["Timer1"].Tick += (s, a) => Timer1_Timer();
             timers["Timer1"].Start();
             
             //i hate these ugly lambdas
-            Shown += (s, a) => MsgBox("UPOZORNĚNÍ PRO PŘECITLIVĚLÉ POVAHY: Hra obsahuje mnoho brutálního chování a vulgárních slov. Hraním této hry na sebe berete veškerou zodpovědnost, pokud se vám hra nelíbí, tak jí nehrajte. Děkuji, případné dotazy = marty@northcrewz.tk");
+            if (!WasWarningShown)
+            {
+                Shown += (s, a) => MsgBox("UPOZORNĚNÍ PRO PŘECITLIVĚLÉ POVAHY: Hra obsahuje mnoho brutálního chování a vulgárních slov. Hraním této hry na sebe berete veškerou zodpovědnost, pokud se vám hra nelíbí, tak jí nehrajte. Děkuji, případné dotazy = marty@northcrewz.tk");
+                WasWarningShown = true;
+            }
+        }
+
+        void Reload()
+        {
+            timers["Timer1"].Stop();
+            Form_Load();
         }
 
         void Timer1_Timer()
         {
             SetText("money", MoneyText());
-            trypreparefallouttrigger();
+            TryPrepareFalloutTrigger();
             if (money < 0)
             {
                 timers["Timer1"].Stop();
@@ -70,7 +82,7 @@ namespace ZNK
 
         void konec_Click()
         {
-            End();
+            GoBackToIntro();
         }
         void absinth_Click()
         {
@@ -195,6 +207,11 @@ namespace ZNK
                     Hide("obchodIN");
                 }
             }
+        }
+
+        void policie_Click()
+        {
+            GoBackToIntro();
         }
 
         void kameros_Click()

@@ -132,6 +132,7 @@ namespace ZNK
             OnClick("Žena", Žena_Click);
             OnDragDrop("Žena", Žena_DragDrop);
             OnClick("ženaGUN", ženaGUN_Click);
+            OnClick("policie", policie_Click);
         }
 
         void Adolf_Click()
@@ -142,7 +143,7 @@ namespace ZNK
         void Adolf_DragDrop(Control src)
         {
             if (src == GetControlSafe("BrokovniceI") && FalloutEndCivInteractedWith == 3) {
-                trypreparefallouttrigger();
+                TryPrepareFalloutTrigger();
                 return;
             }
 
@@ -341,7 +342,7 @@ namespace ZNK
         void Fidel_DragDrop(Control src)
         {
             if (src == GetControlSafe("zápalkyI") && FalloutEndCivInteractedWith == 3) {
-                trypreparefallouttrigger();
+                TryPrepareFalloutTrigger();
                 return;
             }
 
@@ -576,7 +577,7 @@ namespace ZNK
                 Hide("whiskeyI");
                 if (FalloutEndCivInteractedWith == 3)
                 {
-                    trypreparefallouttrigger();
+                    TryPrepareFalloutTrigger();
                     return;
                 }
             }

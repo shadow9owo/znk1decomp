@@ -46,6 +46,8 @@ namespace ZNK
             Build("Form2");
             WireEvents();
             Current = this;
+            timers["Timer1"].Interval = 50;
+            timers["Timer1"].Tick += (s, a) => Timer1_Timer();
             Form_Load();
         }
 
@@ -57,6 +59,14 @@ namespace ZNK
         string MoneyText()
         {
             return money.ToString("0.##", CultureInfo.CurrentCulture);
+        }
+
+        void GoBackToIntro()
+        {
+            timers["Timer1"].Stop();
+            IntroForm intro = new IntroForm();
+            this.Hide();
+            IntroForm.handle.Show();
         }
     }
 }

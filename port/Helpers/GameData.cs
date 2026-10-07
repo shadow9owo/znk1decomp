@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using static ZNK.Helpers.Form.FormHelpers;
+
 namespace ZNK.Helpers
 {
     public class GameData

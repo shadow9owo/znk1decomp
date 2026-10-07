@@ -18,6 +18,7 @@ namespace ZNK
     {
         bool bonus;
         GameForm game;
+        public static Form handle;
 
         public IntroForm()
         {
@@ -29,6 +30,8 @@ namespace ZNK
             OnClick("začátek", začátek_Click);
             OnClick("Image1", Image1_Click);
             OnClick("okno", Okno_Click);
+
+            handle = this;
         }
 
         void Form_Load() { 

@@ -16,7 +16,7 @@ using static ZNK.Helpers.Form.FormHelpers;
 
 namespace ZNK
 {
-    [System.ComponentModel.DesignerCategory("Code")] 
+    [System.ComponentModel.DesignerCategory("Code")]
     public class VbForm : Form
     {
         public VbForm()
@@ -55,7 +55,7 @@ namespace ZNK
         protected void Build(string formName)
         {
             using (var doc = JsonDocument.Parse(File.ReadAllText(Path.Combine(Helpers.GameData.AssetDir, "layout.json"))))
-            { 
+            {
                 var items = doc.RootElement.GetProperty(formName).EnumerateArray().ToList();
 
                 var children = new Dictionary<string, List<System.Text.Json.JsonElement>>();
@@ -175,6 +175,12 @@ namespace ZNK
             Helpers.GameData.byName[name] = control;
             return control;
         }
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+            Application.Exit();
+        }
+
     }
 
     // pixel art - draw with point (nearest neighbor) filtering instead of bilinear
@@ -188,4 +194,4 @@ namespace ZNK
             base.OnPaint(pe);
         }
     }
-}
+} 
