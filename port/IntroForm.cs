@@ -16,7 +16,7 @@ namespace ZNK
     [System.ComponentModel.DesignerCategory("Code")]
     sealed class IntroForm : VbForm
     {
-        int bonus;
+        bool bonus;
         GameForm game;
 
         public IntroForm()
@@ -32,7 +32,9 @@ namespace ZNK
             OnClick("Label1", Label1_Click);
         }
 
-        void Form_Load() { bonus = 0; }
+        void Form_Load() { 
+            bonus = false;
+        }
 
         void StartGame()
         {
@@ -115,7 +117,7 @@ namespace ZNK
 
         void Okno_Click()
         {
-            bonus = 1;
+            bonus = true;
             SetText("text", ">BONUS MONEY<");
         }
 

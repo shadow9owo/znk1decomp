@@ -17,9 +17,9 @@ using static ZNK.Helpers.Form.FormHelpers;
 namespace ZNK
 {
     [System.ComponentModel.DesignerCategory("Code")] 
-    class VbForm : Form
+    public class VbForm : Form
     {
-        protected VbForm()
+        public VbForm()
         {
             Text = Program.Title;
             FormBorderStyle = FormBorderStyle.FixedSingle; //bordered because borderless is overrated

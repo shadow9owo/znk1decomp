@@ -20,9 +20,9 @@ namespace ZNK
     /// state is the money plus the handful of flags below.
     /// </summary>
     [System.ComponentModel.DesignerCategory("Code")]   // built at runtime from layout.json; nothing for the VS designer to edit
-    sealed partial class GameForm : VbForm
+    public partial class GameForm : VbForm
     {
-        readonly int bonus;
+        readonly bool bonus;
 
         double money;
         string snd = "";
@@ -36,19 +36,27 @@ namespace ZNK
         bool HouseCamera;   // 2 = filmed by the hidden camera at the house
         bool BedroomKillSilencer;   // shots in the bedroom: 1 = silenced, 2 = loud
 
-        int FalloutEndCivInteractedWith;   // number of cheered-up villains in the secret room (0..3)
+        internal int FalloutEndCivInteractedWith;   // number of "cheered-up" villains in the secret room (0..3)
 
-        public GameForm(int bonus)
+        public static GameForm Current;
+
+        public GameForm(bool bonus)
         {
             this.bonus = bonus;
             Build("Form2");
             WireEvents();
+            Current = this;
             Form_Load();
         }
 
-        /// <summary>Sets the description label at the bottom of the screen.</summary>
-        void Say(string text) => SetText("text", text);
+        void Say(string text)
+        {
+            SetText("text", text);
+        }
 
-        string MoneyText() => money.ToString("0.##", CultureInfo.CurrentCulture);
+        string MoneyText()
+        {
+            return money.ToString("0.##", CultureInfo.CurrentCulture);
+        }
     }
 }

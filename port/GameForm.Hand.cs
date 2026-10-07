@@ -9,6 +9,7 @@ using global::System.Windows.Forms;
 
 using static ZNK.Helpers.GameData;
 using static ZNK.Helpers.Form.FormHelpers;
+using static ZNK.Helpers.misc;
 
 namespace ZNK
 {
@@ -20,7 +21,7 @@ namespace ZNK
     // The original is a flat list of independent "If ... Then" lines, each of which
     // re-reads the current state. That order is kept exactly, including the cases
     // where it produces the original game's quirks (see README).
-    sealed partial class GameForm
+    public partial class GameForm
     {
         void Form_Load()
         {
@@ -31,21 +32,26 @@ namespace ZNK
             HouseFingerPrints = false;
             BedroomKillSilencer = false;
             HomelessGotBeer = false;
+            
             money = 700;
-            if (bonus == 1) money += 5000000;
-            timers["Timer1"].Interval = 50;      // original: enabled with the minimum interval
+            
+            if (bonus)
+            {
+                money += 5000000;
+            }
+
+            timers["Timer1"].Interval = 50;
             timers["Timer1"].Tick += (s, a) => Timer1_Timer();
             timers["Timer1"].Start();
+            
+            //i hate these ugly lambdas
             Shown += (s, a) => MsgBox("UPOZORNĚNÍ PRO PŘECITLIVĚLÉ POVAHY: Hra obsahuje mnoho brutálního chování a vulgárních slov. Hraním této hry na sebe berete veškerou zodpovědnost, pokud se vám hra nelíbí, tak jí nehrajte. Děkuji, případné dotazy = marty@northcrewz.tk");
         }
 
         void Timer1_Timer()
         {
             SetText("money", MoneyText());
-            if (FalloutEndCivInteractedWith == 3) { 
-                Hide("PoklopSPECIAL"); 
-                Show("Tlačítko"); 
-            }
+            trypreparefallouttrigger();
             if (money < 0)
             {
                 timers["Timer1"].Stop();
@@ -71,8 +77,6 @@ namespace ZNK
         {
             End();
         }
-
-        // ------------------------------------------------------------ the pub
 
         void absinth_Click()
         {
@@ -115,8 +119,6 @@ namespace ZNK
                 Say("Vzal sis Whiskey");
             }
         }
-
-        // ------------------------------------------------------ the army shop
 
         void atomovka_Click()
         {
@@ -219,8 +221,7 @@ namespace ZNK
             {
                 Say("PRODAVAĎ: Vypadni vod tý kamery!");
             }
-
-            if (src == GetControlSafe("kleštěI") && !IsOwnVisible("prodavač"))
+            else if (src == GetControlSafe("kleštěI") && !IsOwnVisible("prodavač"))
             {
                 IsLiveLeakCamAlive = false;
                 Say("Vyřadil jsi kameru z provozu");
@@ -238,8 +239,7 @@ namespace ZNK
                 Say("Koupil sis pěkné štípačky");
                 money -= 500;
             }
-
-            if (IsOwnVisible("ProdavačDEATH"))
+            else if (IsOwnVisible("ProdavačDEATH"))
             {
                 Hide("kleště");
                 Show("kleštěI");
@@ -336,8 +336,6 @@ namespace ZNK
             }
         }
 
-        // ---------------------------------------------------------- the house
-
         void PenízeI_DragDrop(Control src)
         {
             if (src == GetControlSafe("KufrI"))
@@ -386,8 +384,6 @@ namespace ZNK
                 Hide("lahev"); 
             }
         }
-
-        // --------------------------------------------------------- the street
 
         void tulák_Click()
         {
