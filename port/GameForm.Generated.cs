@@ -290,7 +290,7 @@ namespace ZNK
             Hide("Uvnitř");
             Say("Vstoupil jsi k šéfikovi do ložnice...");
             if (IsOwnVisible("skrytoš")) {
-                HouseCamera = false;
+                HouseCamera = true;
             }
         }
 
@@ -326,10 +326,10 @@ namespace ZNK
         {
             Hide("Dveře");
             if (!IsOwnVisible("rukaviceI")) {
-                HouseFingerPrints = false; 
+                HouseFingerPrints = true; 
             }
             if (IsOwnVisible("rukaviceI")) {
-                HouseFingerPrints = true; 
+                HouseFingerPrints = false; 
             }
             Say("No, tak nejsou tak zamčený jak vypadali... můžeš vejít");
         }

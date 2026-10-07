@@ -30,7 +30,7 @@ namespace ZNK
             IsBartenderAlive = true;
             IsLiveLeakCamAlive = true;
             HouseFingerPrints = false;
-            BedroomKillSilencer = false;
+            BedroomKillSilencer = true;
             HomelessGotBeer = false;
             
             money = 700;
@@ -249,7 +249,7 @@ namespace ZNK
 
         void kufr_Click()
         {
-            if (money < 13000)
+            if (money < 13000 && !IsOwnVisible("ProdavačDEATH"))
             {
                 Say("Na ten kufr nemáš peníze");
                 return;
@@ -271,7 +271,7 @@ namespace ZNK
 
         void rukavice_Click()
         {
-            if (money < 5000)
+            if (money < 5000 && !IsOwnVisible("ProdavačDEATH"))
             {
                 Say("Nemáš tolik peněz");
                 return;
@@ -331,6 +331,7 @@ namespace ZNK
                 Say("Udělal jsi do výlohy menší díru");
                 Show("sklo2");
                 Show("ProdavačLOOK");
+                Hide("prodavač");
                 Hide("Kámen");
                 Show("sklo1");
             }
