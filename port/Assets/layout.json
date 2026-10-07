@@ -168,27 +168,6 @@
     "weight": 700,
     "flags": 0
    }
-  },
-  {
-   "name": "Label1",
-   "id": 12,
-   "type": "Label",
-   "parent": "<form>",
-   "x": 776,
-   "y": 8,
-   "w": 17,
-   "h": 17,
-   "visible": true,
-   "caption": " X",
-   "backColor": 2147483655,
-   "foreColor": 16777215,
-   "align": 0,
-   "font": {
-    "name": "MS Sans Serif",
-    "size": 9.75,
-    "weight": 700,
-    "flags": 0
-   }
   }
  ],
  "Form2": [
@@ -1999,27 +1978,6 @@
    "h": 89,
    "visible": true,
    "caption": "Stojíš na ulici, na zemí se válí nějakej zkurvenej tulák",
-   "align": 0,
-   "font": {
-    "name": "MS Sans Serif",
-    "size": 9.75,
-    "weight": 700,
-    "flags": 0
-   }
-  },
-  {
-   "name": "Label1",
-   "id": 128,
-   "type": "Label",
-   "parent": "<form>",
-   "x": 776,
-   "y": 8,
-   "w": 17,
-   "h": 17,
-   "visible": true,
-   "caption": " X",
-   "backColor": 2147483655,
-   "foreColor": 16777215,
    "align": 0,
    "font": {
     "name": "MS Sans Serif",

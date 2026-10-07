@@ -29,7 +29,6 @@ namespace ZNK
             OnClick("začátek", začátek_Click);
             OnClick("Image1", Image1_Click);
             OnClick("okno", Okno_Click);
-            OnClick("Label1", Label1_Click);
         }
 
         void Form_Load() { 
@@ -119,11 +118,6 @@ namespace ZNK
         {
             bonus = true;
             SetText("text", ">BONUS MONEY<");
-        }
-
-        void Label1_Click()
-        {
-            End();
         }
     }
 }

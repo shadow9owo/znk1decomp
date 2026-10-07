@@ -18,7 +18,6 @@ sealed class IntroForm : VbForm
         OnClick("začátek", začátek_Click);
         OnClick("Image1", Image1_Click);
         OnClick("okno", Okno_Click);
-        OnClick("Label1", Label1_Click);
     }
 
     void Form_Load() { bonus = 0; }
@@ -83,6 +82,4 @@ sealed class IntroForm : VbForm
         bonus = 1;
         SetText("text", T(">BONUS MONEY<"));
     }
-
-    void Label1_Click() => End();
 }

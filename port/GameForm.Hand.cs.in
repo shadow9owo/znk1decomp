@@ -41,7 +41,6 @@ sealed partial class GameForm
     void help_Click() => MsgBox(T("Věci které sebereš"));
     void vobraZ_Click() => MsgBox(T("RESPECT TO:"));
     void konec_Click() => End();
-    void Label1_Click() => End();
 
     // ------------------------------------------------------------ the pub
 

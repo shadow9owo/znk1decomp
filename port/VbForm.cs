@@ -23,6 +23,7 @@ namespace ZNK
         {
             Text = Program.Title;
             FormBorderStyle = FormBorderStyle.FixedSingle; //bordered because borderless is overrated
+            MaximizeBox = false;
             StartPosition = FormStartPosition.CenterScreen;
             ClientSize = new Size(800, 600);
             AutoScaleMode = AutoScaleMode.None;

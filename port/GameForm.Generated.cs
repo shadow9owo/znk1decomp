@@ -79,7 +79,6 @@ namespace ZNK
             OnClick("konec", konec_Click);
             OnClick("kpoklopu", kpoklopu_Click);
             OnClick("kufr", kufr_Click);
-            OnClick("Label1", Label1_Click);
             OnClick("láhev", láhev_Click);
             OnDblClick("lahev", lahev_DblClick);
             OnClick("leave", leave_Click);

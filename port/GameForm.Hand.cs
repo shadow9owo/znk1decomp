@@ -72,11 +72,6 @@ namespace ZNK
         {
             End();
         }
-        void Label1_Click()
-        {
-            End();
-        }
-
         void absinth_Click()
         {
             Hide("absinth");
