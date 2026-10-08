@@ -82,7 +82,7 @@ namespace ZNK
 
         void konec_Click()
         {
-            GoBackToIntro();
+            End();
         }
         void absinth_Click()
         {
@@ -211,7 +211,7 @@ namespace ZNK
 
         void policie_Click()
         {
-            GoBackToIntro();
+            End();
         }
 
         void kameros_Click()

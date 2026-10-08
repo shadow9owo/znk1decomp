@@ -60,13 +60,5 @@ namespace ZNK
         {
             return money.ToString("0.##", CultureInfo.CurrentCulture);
         }
-
-        void GoBackToIntro()
-        {
-            timers["Timer1"].Stop();
-            IntroForm intro = new IntroForm();
-            this.Hide();
-            IntroForm.handle.Show();
-        }
     }
 }
