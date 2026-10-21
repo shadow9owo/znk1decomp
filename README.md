@@ -1,8 +1,8 @@
 # ZNK 1 — C# WinForms recomp
 
 > [!WARNING]
-> ## ⚠️ TOHLE JE LEGACY RECOMP ⚠️
-> ### → pro remaster verzi jdi do branche [`remaster`](https://github.com/shadow9owo/znk1decomp/tree/remastered)
+> ##  TOHLE JE LEGACY RECOMP verze
+> ### -> pro remaster verzi jdi do branche [`remaster`](https://github.com/shadow9owo/znk1decomp/tree/remastered)
 
 ---
 
