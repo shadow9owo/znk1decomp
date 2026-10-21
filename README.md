@@ -2,7 +2,7 @@
 
 > [!WARNING]
 > ##  TOHLE JE LEGACY RECOMP verze
-> ### -> pro remaster verzi jdi do branche [`remaster`](https://github.com/shadow9owo/znk1decomp/tree/remastered)
+> ### -> pro remaster verzi jdi do branche [`remaster`](https://github.com/shadow9owo/znk1decomp/tree/remaster)
 
 ---
 
