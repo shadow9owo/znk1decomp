@@ -1,10 +1,18 @@
-# ZNK 1 C# winforms recomp
-cíl tohohlenstoho recompu je přepstat znk jedničku do **winforms c#**
-aby byla **hratelná** na novějších operačních systémech e.g **windows 11**
+# ZNK 1 — C# WinForms recomp
 
-na tento projekt **byla využita umělá intelligence** na pomoc decompilování originální aplikace a jejího pcodu
+> [!WARNING]
+> ## ⚠️ TOHLE JE LEGACY RECOMP ⚠️
+> ### → pro remaster verzi jdi do branche [`remaster`](https://github.com/shadow9owo/znk1decomp/tree/remastered)
 
-demo vytvořeno umělou intelligencí bylo přepsáno pro **.net 4.8.1**
-tak aby kód byl čitelný a pochopitelný.
+---
 
-dgz 2026 <a href="http://doomgames.cc">website</a>
+Cíl tohohle recompu je přepsat ZNK jedničku do **WinForms C#**,
+aby byla **hratelná** na novějších operačních systémech, např. **Windows 11**.
+
+Na tento projekt **byla využita umělá inteligence** na pomoc s dekompilováním
+originální aplikace a jejího p-codu.
+
+Demo vytvořené umělou inteligencí bylo přepsáno pro **.NET 4.8.1**
+tak, aby byl kód **čitelný a pochopitelný**.
+
+dgz 2026 · [website](http://doomgames.cc)
